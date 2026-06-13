@@ -23,10 +23,18 @@ async def test_counter(dut):
     await Timer(19, unit="ns")
     dut.rst_n.value = 1
 
-    for expected in range(1, 20):
-        await RisingEdge(dut.clk)
-        await ReadOnly()
-        assert (dut.uo_out.value.to_unsigned() & 0x3F) == expected
+previous = dut.uo_out.value.to_unsigned() & 0x3F
+
+for i in range(20):
+    await RisingEdge(dut.clk)
+    await ReadOnly()
+
+    current = dut.uo_out.value.to_unsigned() & 0x3F
+    expected = (previous + 1) & 0x3F
+
+    assert current == expected
+
+    previous = current
 
     dut.rst_n.value = 0
     await Timer(1, unit="ns")
