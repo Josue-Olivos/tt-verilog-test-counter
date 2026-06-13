@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: © 2024 Tiny Tapeout
 # SPDX-License-Identifier: Apache-2.0
+
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import RisingEdge, Timer, ReadOnly
+from cocotb.triggers import RisingEdge, Timer, ReadOnly, NextTimeStep
 
 
 @cocotb.test()
@@ -35,6 +36,8 @@ async def test_counter(dut):
         assert current == expected
 
         previous = current
+
+    await NextTimeStep()
 
     dut.rst_n.value = 0
     await Timer(1, unit="ns")
