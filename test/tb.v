@@ -41,36 +41,4 @@ module tb ();
       .rst_n  (rst_n)
   );
 
-  // Clock generation: 10 ns period = 100 MHz
-  initial begin
-    clk = 0;
-    forever #5 clk = ~clk;
-  end
-
-  // Reset/test sequence
-  initial begin
-    ena    = 1'b1;
-    ui_in  = 8'b0;
-    uio_in = 8'b0;
-
-    rst_n = 1'b0;   // Tiny Tapeout reset is active-low, so 0 = reset
-    #10;
-    rst_n = 1'b1;   // release reset
-
-    #35;
-
-    rst_n = 1'b0;   // press reset again
-    #10;
-    rst_n = 1'b1;   // release reset again
-
-    #40;
-
-    rst_n = 1'b0;   // reset one more time
-    #10;
-    rst_n = 1'b1;
-
-    #600;
-    $finish;
-  end
-
 endmodule
