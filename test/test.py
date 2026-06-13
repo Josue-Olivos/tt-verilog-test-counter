@@ -10,7 +10,7 @@ from cocotb.triggers import RisingEdge, Timer
 async def test_counter(dut):
     dut._log.info("Start 6-bit counter test")
 
-    clock = Clock(dut.clk, 10, units="ns")
+    clock = Clock(dut.clk, 10, unit="ns")
     cocotb.start_soon(clock.start())
 
     dut.ena.value = 1
@@ -18,17 +18,18 @@ async def test_counter(dut):
     dut.uio_in.value = 0
 
     dut.rst_n.value = 0
-    await Timer(20, units="ns")
+    await Timer(1, unit="ns")
 
-    assert dut.uo_out.value.integer == 0
+    assert dut.uo_out.value.to_unsigned() == 0
 
+    await Timer(19, unit="ns")
     dut.rst_n.value = 1
 
     for expected in range(1, 20):
         await RisingEdge(dut.clk)
-        assert dut.uo_out.value.integer & 0x3F == expected
+        assert (dut.uo_out.value.to_unsigned() & 0x3F) == expected
 
     dut.rst_n.value = 0
-    await Timer(10, units="ns")
+    await Timer(1, unit="ns")
 
-    assert dut.uo_out.value.integer & 0x3F == 0
+    assert (dut.uo_out.value.to_unsigned() & 0x3F) == 0
