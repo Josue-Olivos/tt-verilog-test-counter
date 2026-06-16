@@ -17,15 +17,18 @@ async def test_counter(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
 
+    # Hold reset active and allow gate-level signals to settle
     dut.rst_n.value = 0
-    await Timer(1, unit="ns")
+    await Timer(10, unit="ns")
+    await ReadOnly()
     assert (dut.uo_out.value.to_unsigned() & 0x3F) == 0
 
-    await Timer(19, unit="ns")
+    await NextTimeStep()
     dut.rst_n.value = 1
 
     previous = dut.uo_out.value.to_unsigned() & 0x3F
 
+    # Verify counter increments correctly
     for i in range(20):
         await RisingEdge(dut.clk)
         await ReadOnly()
@@ -37,8 +40,10 @@ async def test_counter(dut):
 
         previous = current
 
+    # Verify reset still works after counting
     await NextTimeStep()
 
     dut.rst_n.value = 0
-    await Timer(1, unit="ns")
+    await Timer(10, unit="ns")
+    await ReadOnly()
     assert (dut.uo_out.value.to_unsigned() & 0x3F) == 0
