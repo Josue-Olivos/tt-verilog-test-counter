@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/workspaces/tt-verilog-test-counter/runs/wokwi/tmp/58aae9f9c08e4590a547d67a1bdbde55.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/workspaces/tt-verilog-test-counter/runs/wokwi/tmp/58aae9f9c08e4590a547d67a1bdbde55.bb.v"

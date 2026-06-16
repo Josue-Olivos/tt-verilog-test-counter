@@ -1,0 +1,19 @@
+[WARNING ORD-0039] .openroad ignored with -python
+[INFO ODB-0227] LEF file: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef, created 14 layers, 25 vias
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef, created 4 library cells
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /workspaces/tt-verilog-test-counter/runs/wokwi/58-magic-writelef/tt_um_josue_olivos_6bit_counter.lef at line 2.
+
+[INFO ODB-0227] LEF file: /workspaces/tt-verilog-test-counter/runs/wokwi/58-magic-writelef/tt_um_josue_olivos_6bit_counter.lef, created 1 library cells
+[INFO ODB-0127] Reading DEF file: /tmp/tmps1xxf7xm
+[INFO ODB-0128] Design: empty
+[INFO ODB-0134] Finished DEF file: /tmp/tmps1xxf7xm
+[WARNING] Cell 'tt_um_josue_olivos_6bit_counter' has (17) input pin(s) without antenna gate information. They might not be connected to a gate.
+[WARNING] Cell 'tt_um_josue_olivos_6bit_counter' has (18) output pin(s) without antenna diffusion information. They might not be driven.

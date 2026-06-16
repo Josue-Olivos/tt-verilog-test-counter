@@ -1,0 +1,14 @@
+set circuit1 [readnet spice /workspaces/tt-verilog-test-counter/runs/wokwi/62-magic-spiceextraction/tt_um_josue_olivos_6bit_counter.spice]
+set circuit2 [readnet verilog /dev/null]
+puts "Reading SPICE netlist file '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_12.spice'..."
+readnet spice /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__decap_12.spice $circuit2
+puts "Reading SPICE netlist file '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_12.spice'..."
+readnet spice /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_12.spice $circuit2
+puts "Reading SPICE netlist file '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_4.spice'..."
+readnet spice /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_4.spice $circuit2
+puts "Reading SPICE netlist file '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_8.spice'..."
+readnet spice /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_ef_sc_hd__fill_8.spice $circuit2
+puts "Reading SPICE netlist file '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice'..."
+readnet spice /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice $circuit2
+readnet verilog /workspaces/tt-verilog-test-counter/runs/wokwi/51-openroad-fillinsertion/tt_um_josue_olivos_6bit_counter.pnl.v $circuit2
+lvs "$circuit1 tt_um_josue_olivos_6bit_counter" "$circuit2 tt_um_josue_olivos_6bit_counter" /nix/store/pqxyc4xmydcs5adig47yyc29r3svp5nx-python3-3.11.9-env/lib/python3.11/site-packages/librelane/scripts/netgen/setup.tcl /workspaces/tt-verilog-test-counter/runs/wokwi/64-netgen-lvs/reports/lvs.netgen.rpt -blackbox -json

@@ -1,0 +1,1 @@
+netgen -batch source /workspaces/tt-verilog-test-counter/runs/wokwi/64-netgen-lvs/lvs_script.lvs

@@ -1,0 +1,187 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _24_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                      0.150000    0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (ideal)
+                                  4.000000    4.000000 ^ input external delay
+     6    0.019578    0.149454    0.099820    4.099820 ^ rst_n (in)
+                                                         rst_n (net)
+                      0.149454    0.000000    4.099820 ^ _24_/RESET_B (sky130_fd_sc_hd__dfrtp_2)
+                                              4.099820   data arrival time
+
+                      0.150000   20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (ideal)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                             19.750002 ^ _24_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                                  0.437515   20.187517   library recovery time
+                                             20.187517   data required time
+---------------------------------------------------------------------------------------------
+                                             20.187517   data required time
+                                             -4.099820   data arrival time
+---------------------------------------------------------------------------------------------
+                                             16.087696   slack (MET)
+
+
+Startpoint: _24_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: uo_out[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                      0.150000    0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (ideal)
+                      0.150000    0.000000    0.000000 ^ _24_/CLK (sky130_fd_sc_hd__dfrtp_2)
+     6    0.047000    0.261168    1.046829    1.046829 v _24_/Q (sky130_fd_sc_hd__dfrtp_2)
+                                                         uo_out[0] (net)
+                      0.261168    0.000000    1.046829 v uo_out[0] (out)
+                                              1.046829   data arrival time
+
+                      0.150000   20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (ideal)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -4.000000   15.750001   output external delay
+                                             15.750001   data required time
+---------------------------------------------------------------------------------------------
+                                             15.750001   data required time
+                                             -1.046829   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.703172   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 73 unannotated drivers.
+ clk
+ ena
+ rst_n
+ ui_in[0]
+ ui_in[1]
+ ui_in[2]
+ ui_in[3]
+ ui_in[4]
+ ui_in[5]
+ ui_in[6]
+ ui_in[7]
+ uio_in[0]
+ uio_in[1]
+ uio_in[2]
+ uio_in[3]
+ uio_in[4]
+ uio_in[5]
+ uio_in[6]
+ uio_in[7]
+ _12_/Y
+ _13_/Y
+ _14_/X
+ _15_/X
+ _16_/Y
+ _17_/X
+ _18_/X
+ _19_/X
+ _20_/Y
+ _21_/X
+ _22_/X
+ _23_/Y
+ _24_/Q
+ _25_/Q
+ _26_/Q
+ _27_/Q
+ _28_/Q
+ _29_/Q
+ _30_/HI
+ _30_/LO
+ _31_/HI
+ _31_/LO
+ _32_/HI
+ _32_/LO
+ _33_/HI
+ _33_/LO
+ _34_/HI
+ _34_/LO
+ _35_/HI
+ _35_/LO
+ _36_/HI
+ _36_/LO
+ _37_/HI
+ _37_/LO
+ _38_/HI
+ _38_/LO
+ _39_/HI
+ _39_/LO
+ _40_/HI
+ _40_/LO
+ _41_/HI
+ _41_/LO
+ _42_/HI
+ _42_/LO
+ _43_/HI
+ _43_/LO
+ _44_/HI
+ _44_/LO
+ _45_/HI
+ _45_/LO
+ _46_/HI
+ _46_/LO
+ _47_/HI
+ _47_/LO
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There are 18 unconstrained endpoints.
+  uio_oe[0]
+  uio_oe[1]
+  uio_oe[2]
+  uio_oe[3]
+  uio_oe[4]
+  uio_oe[5]
+  uio_oe[6]
+  uio_oe[7]
+  uio_out[0]
+  uio_out[1]
+  uio_out[2]
+  uio_out[3]
+  uio_out[4]
+  uio_out[5]
+  uio_out[6]
+  uio_out[7]
+  uo_out[6]
+  uo_out[7]

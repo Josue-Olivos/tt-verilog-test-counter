@@ -1,0 +1,1 @@
+openroad -exit -no_splash -metrics /workspaces/tt-verilog-test-counter/runs/wokwi/45-openroad-checkantennas-1/or_metrics_out.json /nix/store/pqxyc4xmydcs5adig47yyc29r3svp5nx-python3-3.11.9-env/lib/python3.11/site-packages/librelane/scripts/openroad/antenna_check.tcl

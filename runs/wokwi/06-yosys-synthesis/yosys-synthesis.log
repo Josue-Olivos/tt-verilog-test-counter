@@ -1,0 +1,899 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+1. Executing Liberty frontend: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /workspaces/tt-verilog-test-counter/src/project.v
+Parsing SystemVerilog input from `/workspaces/tt-verilog-test-counter/src/project.v' to AST representation.
+Storing AST representation for module `$abstract\tt_um_josue_olivos_6bit_counter'.
+Storing AST representation for module `$abstract\counter_6bit'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\tt_um_josue_olivos_6bit_counter'.
+Generating RTLIL representation for module `\tt_um_josue_olivos_6bit_counter'.
+
+4.1. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\counter_6bit'.
+Generating RTLIL representation for module `\counter_6bit'.
+
+4.3. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+Used module:     \counter_6bit
+
+4.4. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+Used module:     \counter_6bit
+Removing unused module `$abstract\counter_6bit'.
+Removing unused module `$abstract\tt_um_josue_olivos_6bit_counter'.
+Removed 2 unused modules.
+Renaming module tt_um_josue_olivos_6bit_counter to tt_um_josue_olivos_6bit_counter.
+
+5. Generating Graphviz representation of design.
+Writing dot description to `/workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/hierarchy.dot'.
+Dumping module tt_um_josue_olivos_6bit_counter to page 1.
+
+6. Executing TRIBUF pass.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+Used module:     \counter_6bit
+
+7.2. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+Used module:     \counter_6bit
+Removed 0 unused modules.
+
+8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/workspaces/tt-verilog-test-counter/src/project.v:44$3 in module counter_6bit.
+Removed a total of 0 dead cases.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+11. Executing PROC_INIT pass (extract init attributes).
+
+12. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\counter_6bit.$proc$/workspaces/tt-verilog-test-counter/src/project.v:44$3'.
+
+13. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+14. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\counter_6bit.$proc$/workspaces/tt-verilog-test-counter/src/project.v:44$3'.
+     1/1: $0\count[5:0]
+
+15. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+16. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\counter_6bit.\count' using process `\counter_6bit.$proc$/workspaces/tt-verilog-test-counter/src/project.v:44$3'.
+  created $adff cell `$procdff$7' with positive edge clock and positive level reset.
+
+17. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `counter_6bit.$proc$/workspaces/tt-verilog-test-counter/src/project.v:44$3'.
+Cleaned up 0 empty switches.
+
+19. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_josue_olivos_6bit_counter...
+Checking module counter_6bit...
+Found and reported 0 problems.
+
+20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+<suppressed ~1 debug messages>
+Optimizing module counter_6bit.
+<suppressed ~1 debug messages>
+
+21. Executing FLATTEN pass (flatten design).
+Deleting now unused module counter_6bit.
+<suppressed ~1 debug messages>
+
+22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+<suppressed ~1 debug messages>
+
+23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+Removed 1 unused cells and 5 unused wires.
+<suppressed ~3 debug messages>
+
+24. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+25. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+26. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_josue_olivos_6bit_counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+27. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_josue_olivos_6bit_counter.
+Performed a total of 0 changes.
+
+28. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+29. Executing OPT_DFF pass (perform DFF optimizations).
+
+30. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+31. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+32. Executing FSM pass (extract and optimize FSM).
+
+32.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+32.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+32.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+32.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+32.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+32.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+32.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+34. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+35. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_josue_olivos_6bit_counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+36. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_josue_olivos_6bit_counter.
+Performed a total of 0 changes.
+
+37. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+38. Executing OPT_DFF pass (perform DFF optimizations).
+
+39. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+40. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+41. Executing WREDUCE pass (reducing word size of cells).
+Removed top 5 bits (of 6) from port B of cell tt_um_josue_olivos_6bit_counter.$flatten\my_counter.$add$/workspaces/tt-verilog-test-counter/src/project.v:48$4 ($add).
+
+42. Executing PEEPOPT pass (run peephole optimizers).
+
+43. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+44. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module tt_um_josue_olivos_6bit_counter:
+  creating $macc model for $flatten\my_counter.$add$/workspaces/tt-verilog-test-counter/src/project.v:48$4 ($add).
+  creating $alu model for $macc $flatten\my_counter.$add$/workspaces/tt-verilog-test-counter/src/project.v:48$4.
+  creating $alu cell for $flatten\my_counter.$add$/workspaces/tt-verilog-test-counter/src/project.v:48$4: $auto$alumacc.cc:485:replace_alu$9
+  created 1 $alu and 0 $macc cells.
+
+45. Executing SHARE pass (SAT-based resource sharing).
+
+46. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+47. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+48. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_josue_olivos_6bit_counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+49. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_josue_olivos_6bit_counter.
+Performed a total of 0 changes.
+
+50. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+51. Executing OPT_DFF pass (perform DFF optimizations).
+
+52. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+53. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+54. Executing MEMORY pass.
+
+54.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+54.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+54.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+54.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+54.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+54.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+54.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+54.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+54.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+54.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+55. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+56. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+57. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+58. Executing OPT_DFF pass (perform DFF optimizations).
+
+59. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+60. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+61. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+62. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+63. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_josue_olivos_6bit_counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+64. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_josue_olivos_6bit_counter.
+Performed a total of 0 changes.
+
+65. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+66. Executing OPT_SHARE pass.
+
+67. Executing OPT_DFF pass (perform DFF optimizations).
+
+68. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+69. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+70. Executing TECHMAP pass (map to technology primitives).
+
+70.1. Executing Verilog-2005 frontend: /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+70.2. Continuing TECHMAP pass.
+Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~231 debug messages>
+
+71. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+<suppressed ~31 debug messages>
+
+72. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+Removed 7 unused cells and 37 unused wires.
+<suppressed ~8 debug messages>
+
+75. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+76. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+77. Executing OPT_DFF pass (perform DFF optimizations).
+
+78. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+79. Executing ABC pass (technology mapping using ABC).
+
+79.1. Extracting gate netlist of module `\tt_um_josue_olivos_6bit_counter' to `<abc-temp-dir>/input.blif'..
+Extracted 11 gates and 17 wires to a netlist network with 6 inputs and 6 outputs.
+
+79.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+79.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:              NAND cells:        2
+ABC RESULTS:                OR cells:        1
+ABC RESULTS:              XNOR cells:        2
+ABC RESULTS:            ANDNOT cells:        2
+ABC RESULTS:               XOR cells:        3
+ABC RESULTS:        internal signals:        5
+ABC RESULTS:           input signals:        6
+ABC RESULTS:          output signals:        6
+Removing temp directory.
+
+80. Executing OPT pass (performing simple optimizations).
+
+80.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+80.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+80.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+80.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+80.5. Finished fast OPT passes.
+
+81. Executing HIERARCHY pass (managing design hierarchy).
+
+81.1. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+
+81.2. Analyzing design hierarchy..
+Top module:  \tt_um_josue_olivos_6bit_counter
+Removed 0 unused modules.
+
+82. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_josue_olivos_6bit_counter...
+Found and reported 0 problems.
+
+83. Printing statistics.
+
+=== tt_um_josue_olivos_6bit_counter ===
+
+   Number of wires:                 19
+   Number of wire bits:             74
+   Number of public wires:          12
+   Number of public wire bits:      57
+   Number of ports:                  8
+   Number of port bits:             43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $_ANDNOT_                       2
+     $_DFF_PN0_                      6
+     $_NAND_                         2
+     $_NOT_                          1
+     $_OR_                           1
+     $_XNOR_                         2
+     $_XOR_                          3
+     $scopeinfo                      1
+
+84. Generating Graphviz representation of design.
+Writing dot description to `/workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/primitive_techmap.dot'.
+Dumping module tt_um_josue_olivos_6bit_counter to page 1.
+
+85. Executing OPT pass (performing simple optimizations).
+
+85.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+85.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+85.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_josue_olivos_6bit_counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+85.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_josue_olivos_6bit_counter.
+Performed a total of 0 changes.
+
+85.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_josue_olivos_6bit_counter'.
+Removed a total of 0 cells.
+
+85.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+85.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+
+85.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_josue_olivos_6bit_counter.
+
+85.9. Finished OPT passes. (There is nothing left to do.)
+
+86. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+Removed 1 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /workspaces/tt-verilog-test-counter/runs/wokwi/tmp/036709af9d0f45379b052da19f8a1893.lib ",
+   "modules": {
+      "\\tt_um_josue_olivos_6bit_counter": {
+         "num_wires":         15,
+         "num_wire_bits":     60,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         17,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2,
+            "$_DFF_PN0_": 6,
+            "$_NAND_": 2,
+            "$_NOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 3
+         }
+      }
+   },
+      "design": {
+         "num_wires":         15,
+         "num_wire_bits":     60,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         17,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2,
+            "$_DFF_PN0_": 6,
+            "$_NAND_": 2,
+            "$_NOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 3
+         }
+      }
+}
+
+87. Printing statistics.
+
+=== tt_um_josue_olivos_6bit_counter ===
+
+   Number of wires:                 15
+   Number of wire bits:             60
+   Number of public wires:           8
+   Number of public wire bits:      43
+   Number of ports:                  8
+   Number of port bits:             43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 17
+     $_ANDNOT_                       2
+     $_DFF_PN0_                      6
+     $_NAND_                         2
+     $_NOT_                          1
+     $_OR_                           1
+     $_XNOR_                         2
+     $_XOR_                          3
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+88. Executing TECHMAP pass (map to technology primitives).
+
+88.1. Executing Verilog-2005 frontend: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+88.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+89. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+90. Executing TECHMAP pass (map to technology primitives).
+
+90.1. Executing Verilog-2005 frontend: /home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/vscode/ttsetup/pdk/ciel/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+90.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+91. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+92. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+92.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\tt_um_josue_olivos_6bit_counter':
+  mapped 6 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_2 cells.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /workspaces/tt-verilog-test-counter/runs/wokwi/tmp/036709af9d0f45379b052da19f8a1893.lib ",
+   "modules": {
+      "\\tt_um_josue_olivos_6bit_counter": {
+         "num_wires":         15,
+         "num_wire_bits":     60,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         17,
+         "area":              157.651200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2,
+            "$_NAND_": 2,
+            "$_NOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 3,
+            "sky130_fd_sc_hd__dfrtp_2": 6
+         }
+      }
+   },
+      "design": {
+         "num_wires":         15,
+         "num_wire_bits":     60,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         17,
+         "area":              157.651200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2,
+            "$_NAND_": 2,
+            "$_NOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 2,
+            "$_XOR_": 3,
+            "sky130_fd_sc_hd__dfrtp_2": 6
+         }
+      }
+}
+
+93. Printing statistics.
+
+=== tt_um_josue_olivos_6bit_counter ===
+
+   Number of wires:                 15
+   Number of wire bits:             60
+   Number of public wires:           8
+   Number of public wire bits:      43
+   Number of ports:                  8
+   Number of port bits:             43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 17
+     $_ANDNOT_                       2
+     $_NAND_                         2
+     $_NOT_                          1
+     $_OR_                           1
+     $_XNOR_                         2
+     $_XOR_                          3
+     sky130_fd_sc_hd__dfrtp_2        6
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+
+   Chip area for module '\tt_um_josue_olivos_6bit_counter': 157.651200
+     of which used for sequential elements: 157.651200 (100.00%)
+
+[INFO] Using generated ABC script '/workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/AREA_0.abc'…
+
+94. Executing ABC pass (technology mapping using ABC).
+
+94.1. Extracting gate netlist of module `\tt_um_josue_olivos_6bit_counter' to `/tmp/yosys-abc-ohN9Fa/input.blif'..
+Extracted 11 gates and 17 wires to a netlist network with 6 inputs and 6 outputs.
+
+94.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f /tmp/yosys-abc-ohN9Fa/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-ohN9Fa/abc.script".
+ABC: 
+ABC: + read_blif /tmp/yosys-abc-ohN9Fa/input.blif 
+ABC: + read_lib -w /workspaces/tt-verilog-test-counter/runs/wokwi/tmp/036709af9d0f45379b052da19f8a1893.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.06 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/workspaces/tt-verilog-test-counter/runs/wokwi/tmp/036709af9d0f45379b052da19f8a1893.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use).  Time =     0.08 sec
+ABC: Memory =    9.54 MB. Time =     0.08 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2/Y".
+ABC: Setting output load to be 33.442001.
+ABC: + source /workspaces/tt-verilog-test-counter/runs/wokwi/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sky130_fd_sc_hd__inv_2/Y) in the library.
+ABC: WireLoad = "none"  Gates =     12 (  8.3 %)   Cap = 15.9 ff (  1.0 %)   Area =      103.85 ( 91.7 %)   Delay =   743.12 ps  ( 25.0 %)               
+ABC: Path  0 --       4 : 0    2 pi                      A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   4.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      18 : 4    3 sky130_fd_sc_hd__and4_2 A =  10.01  Df = 224.2   -2.3 ps  S =  76.3 ps  Cin =  1.5 ff  Cout =   7.7 ff  Cmax = 300.3 ff  G =  485  
+ABC: Path  2 --      22 : 2    1 sky130_fd_sc_hd__or2_2  A =   6.26  Df = 481.2 -157.6 ps  S =  49.0 ps  Cin =  1.5 ff  Cout =   1.5 ff  Cmax = 299.4 ff  G =  101  
+ABC: Path  3 --      23 : 2    1 sky130_fd_sc_hd__and2_2 A =   7.51  Df = 743.1 -183.6 ps  S = 180.7 ps  Cin =  1.5 ff  Cout =  33.4 ff  Cmax = 303.0 ff  G = 2288  
+ABC: Start-point = pi3 (\uo_out [3]).  End-point = po3 ($auto$alumacc.cc:485:replace_alu$9.Y [4]).
+ABC: netlist                       : i/o =    6/    6  lat =    0  nd =    12  edge =     27  area =103.88  delay = 3.00  lev = 3
+ABC: + write_blif /tmp/yosys-abc-ohN9Fa/output.blif 
+
+94.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and4_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:        2
+ABC RESULTS:        internal signals:        5
+ABC RESULTS:           input signals:        6
+ABC RESULTS:          output signals:        6
+Removing temp directory.
+
+95. Executing SETUNDEF pass (replace undef values with defined constants).
+
+96. Executing HILOMAP pass (mapping to constant drivers).
+
+97. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+98. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_josue_olivos_6bit_counter..
+Removed 0 unused cells and 41 unused wires.
+<suppressed ~1 debug messages>
+
+99. Executing INSBUF pass (insert buffer cells for connected wires).
+
+100. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_josue_olivos_6bit_counter...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /workspaces/tt-verilog-test-counter/runs/wokwi/tmp/036709af9d0f45379b052da19f8a1893.lib ",
+   "modules": {
+      "\\tt_um_josue_olivos_6bit_counter": {
+         "num_wires":         20,
+         "num_wire_bits":     55,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         36,
+         "area":              329.065600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a31o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 2,
+            "sky130_fd_sc_hd__and2b_2": 1,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__conb_1": 18,
+            "sky130_fd_sc_hd__dfrtp_2": 6,
+            "sky130_fd_sc_hd__inv_2": 1,
+            "sky130_fd_sc_hd__nand2_2": 2,
+            "sky130_fd_sc_hd__or2_2": 2,
+            "sky130_fd_sc_hd__xnor2_2": 2
+         }
+      }
+   },
+      "design": {
+         "num_wires":         20,
+         "num_wire_bits":     55,
+         "num_pub_wires":     8,
+         "num_pub_wire_bits": 43,
+         "num_ports":         8,
+         "num_port_bits":     43,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         36,
+         "area":              329.065600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a31o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 2,
+            "sky130_fd_sc_hd__and2b_2": 1,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__conb_1": 18,
+            "sky130_fd_sc_hd__dfrtp_2": 6,
+            "sky130_fd_sc_hd__inv_2": 1,
+            "sky130_fd_sc_hd__nand2_2": 2,
+            "sky130_fd_sc_hd__or2_2": 2,
+            "sky130_fd_sc_hd__xnor2_2": 2
+         }
+      }
+}
+
+101. Printing statistics.
+
+=== tt_um_josue_olivos_6bit_counter ===
+
+   Number of wires:                 20
+   Number of wire bits:             55
+   Number of public wires:           8
+   Number of public wire bits:      43
+   Number of ports:                  8
+   Number of port bits:             43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     sky130_fd_sc_hd__a31o_2         1
+     sky130_fd_sc_hd__and2_2         2
+     sky130_fd_sc_hd__and2b_2        1
+     sky130_fd_sc_hd__and4_2         1
+     sky130_fd_sc_hd__conb_1        18
+     sky130_fd_sc_hd__dfrtp_2        6
+     sky130_fd_sc_hd__inv_2          1
+     sky130_fd_sc_hd__nand2_2        2
+     sky130_fd_sc_hd__or2_2          2
+     sky130_fd_sc_hd__xnor2_2        2
+
+   Chip area for module '\tt_um_josue_olivos_6bit_counter': 329.065600
+     of which used for sequential elements: 157.651200 (47.91%)
+
+102. Executing Verilog backend.
+Dumping module `\tt_um_josue_olivos_6bit_counter'.
+
+103. Executing JSON backend.
