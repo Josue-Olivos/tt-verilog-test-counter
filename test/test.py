@@ -17,15 +17,19 @@ async def test_counter(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
 
-    # Hold reset active and allow gate-level signals to settle
+    # Hold reset long enough for gate-level simulation to settle
     dut.rst_n.value = 0
     await Timer(10, unit="ns")
     await ReadOnly()
     assert (dut.uo_out.value.to_unsigned() & 0x3F) == 0
 
+    # Release reset
     await NextTimeStep()
     dut.rst_n.value = 1
 
+    # Let one clock edge pass after reset release before checking
+    await RisingEdge(dut.clk)
+    await ReadOnly()
     previous = dut.uo_out.value.to_unsigned() & 0x3F
 
     # Verify counter increments correctly
